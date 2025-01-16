@@ -37,8 +37,6 @@
 ABreakerPawn::ABreakerPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RootComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkelMeshComponent"));
     this->TeleportInMontage = NULL;
-    this->OnDamagedSound = NULL;
-    this->OnDeathSound = NULL;
     this->SurfaceInfoComponent = CreateDefaultSubobject<USurfaceInfoComponent>(TEXT("SurfaceInfoComponent"));
     this->HubMoveSpeedMultiplier = 1.20f;
     this->IsJumpPadJump = false;
@@ -141,7 +139,6 @@ ABreakerPawn::ABreakerPawn(const FObjectInitializer& ObjectInitializer) : Super(
     this->AnimJump = NULL;
     this->AnimSuccessiveJump = NULL;
     this->bValidGlideConditions = false;
-    this->AKAudioComponent->SetupAttachment(RootComponent);
     this->CameraBaseTrackingPosition->SetupAttachment(RootComponent);
     this->CosmeticSkelMesh->SetupAttachment(RootComponent);
     this->GliderAction->SetupAttachment(RootComponent);

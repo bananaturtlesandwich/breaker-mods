@@ -10,7 +10,6 @@
 #include "ChildParams.h"
 #include "ControlMapDetails.h"
 #include "DeckingFootprint.h"
-#include "EAudioVertexType.h"
 #include "EObjectType.h"
 #include "InteractableParams.h"
 #include "IslomeGridInfo.h"

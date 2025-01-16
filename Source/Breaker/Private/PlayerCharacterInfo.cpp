@@ -10,7 +10,6 @@ UPlayerCharacterInfo::UPlayerCharacterInfo() {
     this->WeaponStanceLinkingDataTable = NULL;
     this->MoveSpeedModifier = 1.00f;
     this->DifficultyRating = 1;
-    this->CharacterAudioData = NULL;
     this->CameraCollisionDistanceModifier = 30.00f;
 }
 

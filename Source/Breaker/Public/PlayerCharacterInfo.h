@@ -54,9 +54,6 @@ public:
     int32 DifficultyRating;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UBreakerCharAudioDataBase* CharacterAudioData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CameraCollisionDistanceModifier;
     
     UPlayerCharacterInfo();

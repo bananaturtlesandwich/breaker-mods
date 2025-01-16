@@ -10,7 +10,6 @@ ABeaconEvent::ABeaconEvent(const FObjectInitializer& ObjectInitializer) : Super(
     this->Timer = -1.00f;
     this->Time = 0.00f;
     this->HurryUpTime = 0.00f;
-    this->EventTypeAudioValue = NULL;
 }
 
 void ABeaconEvent::StartTimer() {

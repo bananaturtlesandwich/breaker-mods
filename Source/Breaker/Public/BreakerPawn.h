@@ -10,15 +10,12 @@
 #include "AttributeComponentInterface.h"
 #include "ADSEventDelegate.h"
 #include "AimingOrbitCameraInterface.h"
-#include "AudioDamageInterface.h"
-#include "AudioEventsCollection.h"
 #include "BreakerCamModifierData.h"
 #include "BreakerCharacterLandingEvent.h"
 #include "BreakerDamage.h"
 #include "BreakerDamageable.h"
 #include "BreakerOrbitCamDelegate.h"
 #include "CharacterAgentInterface.h"
-#include "CharacterAudioInterface.h"
 #include "CharacterCombatActivityEvent.h"
 #include "CharacterMovementStick.h"
 #include "DashEventParams.h"
@@ -44,7 +41,6 @@
 #include "OnInflictedDamageDelegate.h"
 #include "OnJumpEventDelegate.h"
 #include "ParryEventPayload.h"
-#include "PawnAudioInterface.h"
 #include "PerfectDodgeEventDelegate.h"
 #include "PlayerRespawnEventDelegate.h"
 #include "ReadyToHoverDelegate.h"
@@ -120,7 +116,7 @@ class UTargetingCameraComponent;
 class UTutorialManager;
 
 UCLASS(Abstract, Blueprintable)
-class ABreakerPawn : public APawn, public IBreakerOrbitCamDelegate, public IPawnAudioInterface, public ICharacterAgentInterface, public IAudioDamageInterface, public ICharacterAudioInterface, public IBreakerDamageable, public IAimingOrbitCameraInterface, public IAttributeComponentInterface, public ITaggedPropertiesInterface, public ITestMonkeyReflectableInterface {
+class ABreakerPawn : public APawn, public IBreakerOrbitCamDelegate, public ICharacterAgentInterface, public IBreakerDamageable, public IAimingOrbitCameraInterface, public IAttributeComponentInterface, public ITaggedPropertiesInterface, public ITestMonkeyReflectableInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
