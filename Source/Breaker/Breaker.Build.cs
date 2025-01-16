@@ -15,6 +15,7 @@ public class Breaker : ModuleRules {
             "CoreUObject",
             "DeveloperSettings",
             "Engine",
+            "FastNoiseGenerator",
             "Foliage",
             "GameplayCameras",
             "GameplayTags",

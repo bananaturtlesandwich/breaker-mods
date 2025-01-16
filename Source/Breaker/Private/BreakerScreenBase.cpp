@@ -1,7 +1,6 @@
 #include "BreakerScreenBase.h"
 
 UBreakerScreenBase::UBreakerScreenBase() {
-    this->DesiredInputMode = ECommonInputMode::Menu;
     this->bDisableSlateNavigation = false;
     this->bEnableWASDNavigation = true;
     this->LatestInputDeviceType = EUIInputDeviceType::None;

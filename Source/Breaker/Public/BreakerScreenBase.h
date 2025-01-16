@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "CommonActivatableWidget.h"
-#include "ECommonInputMode.h"
 #include "BreakerScreenAction.h"
 #include "EUIInputDeviceType.h"
 #include "LatestInputDeviceTypeChangedDelegate.h"
@@ -18,9 +17,6 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FUIEvent OnInterrupted;
-    
-    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ECommonInputMode DesiredInputMode;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDisableSlateNavigation;
