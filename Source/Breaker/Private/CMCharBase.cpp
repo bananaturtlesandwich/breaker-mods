@@ -2,7 +2,6 @@
 #include "Engine/EngineTypes.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "CharacterAttributeComponent.h"
-#include "BreakerAkComponent.h"
 #include "BreakerMotionWarpingComponent.h"
 #include "EnemyLifeCycleComponent.h"
 #include "HitStopComponent.h"
@@ -22,9 +21,7 @@ ACMCharBase::ACMCharBase(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->MotionWarpingComponent = CreateDefaultSubobject<UBreakerMotionWarpingComponent>(TEXT("MotionWarping"));
     this->ShakeComponent = CreateDefaultSubobject<UShakeComponent>(TEXT("ShakeComponent"));
     this->AttributeComponent = CreateDefaultSubobject<UCharacterAttributeComponent>(TEXT("AttributeContainer"));
-    this->AKAudioComponent = CreateDefaultSubobject<UBreakerAkComponent>(TEXT("AK Audio Component"));
     const FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->VoiceAkAudioComponent = CreateDefaultSubobject<UBreakerAkComponent>(TEXT("Voice Ak Audio Component"));
     this->MaterialStack = CreateDefaultSubobject<UMaterialStackComponent>(TEXT("MaterialStack"));
     this->EnemyLifeCycleComponent = CreateDefaultSubobject<UEnemyLifeCycleComponent>(TEXT("EnemyLifeCycleComponent"));
     this->InitialPushbackModifier = 1.00f;
@@ -51,15 +48,12 @@ ACMCharBase::ACMCharBase(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->HitReactSkipTime = 0.20f;
     this->SmoothRotationAccel = -1.00f;
     this->SmoothRotationMaxSpeed = -1.00f;
-    this->CharacterAudioData = NULL;
     this->AimingPitchForAnimAdjustmentInDegrees = 10.00f;
     this->MaterialRef = NULL;
     this->LastLocalAttacker = NULL;
     this->bHasTemporaryArmor = false;
     this->RadiusForEliteToKillSurroundingEnemiesOnDeath = 4000.00f;
-    this->AKAudioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USkeletalMeshComponent>(this));
     this->ShakeComponent->SetupAttachment(RootComponent);
-    this->VoiceAkAudioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USkeletalMeshComponent>(this));
 }
 
 bool ACMCharBase::WillBeDefeatedByDamage(const FBreakerDamage& Damage) const {
@@ -90,9 +84,6 @@ float ACMCharBase::TimestampOfLastStaggerRecovery() {
 void ACMCharBase::SurroundingEnemiesKilled_Implementation() {
 }
 
-void ACMCharBase::StopTelegraphSFX_ByCurrentActiveAttack_Implementation(const FName SocketName, const AkActionOnEventType OnStopActionType, const int32 OnStopFadeOutMs, const EAkCurveInterpolation OnStopFadeOutCurve) {
-}
-
 void ACMCharBase::SetSpawnLocation(const FVector& Location) {
 }
 
@@ -109,9 +100,6 @@ void ACMCharBase::PlayVoiceSFX_ByCurrentActiveAttack_Implementation(const float 
 }
 
 void ACMCharBase::PlayVoiceSFX_ByAttackName_Implementation(const float Delay, const FName AttackName) {
-}
-
-void ACMCharBase::PlayVoiceSFX_Implementation(const float Delay, const FGameplayTag GameplayTag, const EAudioVoiceType VoiceType) {
 }
 
 void ACMCharBase::PlayTelegraphSFX_ByCurrentActiveAttack_Implementation(const float Delay, const FName SocketName) {
@@ -174,9 +162,6 @@ void ACMCharBase::MULTICAST_LastEnemyInGroupKilled_Implementation(const FVector&
 
 
 void ACMCharBase::KillSurroundingEnemies(float Radius) {
-}
-
-void ACMCharBase::K2_GetAKAudioComponent(UAkComponent*& Result) const {
 }
 
 bool ACMCharBase::IsStrafing_Implementation() const {

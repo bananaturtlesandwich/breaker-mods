@@ -1,5 +1,4 @@
 #include "ADA.h"
-#include "AudioSurfaceComponent.h"
 #include "Net/UnrealNetwork.h"
 
 AADA::AADA(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
@@ -8,7 +7,6 @@ AADA::AADA(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitialize
     this->HasLocators = false;
     this->bPathNode = false;
     this->PropPickerStartingPoints = 8;
-    this->AudioSurfaceComponent = CreateDefaultSubobject<UAudioSurfaceComponent>(TEXT("Audio Surface Component"));
 }
 
 void AADA::InitStream(int32 Seed) {

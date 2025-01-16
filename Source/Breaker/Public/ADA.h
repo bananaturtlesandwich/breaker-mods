@@ -9,7 +9,6 @@
 #include "ADA.generated.h"
 
 class ADecker;
-class UAudioSurfaceComponent;
 class UInteractableSet;
 class UStaticMeshComponent;
 
@@ -46,9 +45,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PropPickerStartingPoints;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UAudioSurfaceComponent* AudioSurfaceComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<UStaticMeshComponent*> GrassMeshes;

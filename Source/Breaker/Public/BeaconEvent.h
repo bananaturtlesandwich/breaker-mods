@@ -4,7 +4,6 @@
 #include "BeaconEvent.generated.h"
 
 class ABeacon;
-class UAkSwitchValue;
 
 UCLASS(Blueprintable)
 class BREAKER_API ABeaconEvent : public AActor {
@@ -21,9 +20,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HurryUpTime;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UAkSwitchValue* EventTypeAudioValue;
     
     ABeaconEvent(const FObjectInitializer& ObjectInitializer);
 

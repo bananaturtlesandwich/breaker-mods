@@ -1,7 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AkActionOnEventType.h"
-#include "EAkCurveInterpolation.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
@@ -13,8 +11,6 @@
 #include "Attribute.h"
 #include "AttributeComponentInterface.h"
 #include "AttackTargetOwner.h"
-#include "AudioDamageInterface.h"
-#include "AudioEventsCollection.h"
 #include "BreakerDamage.h"
 #include "BreakerDamageable.h"
 #include "CMCharDefeatedEventDelegate.h"
@@ -24,16 +20,13 @@
 #include "CMCharPoolEventDelegate.h"
 #include "CMCharStaggerEventDelegate.h"
 #include "CharacterAgentInterface.h"
-#include "CharacterAudioInterface.h"
 #include "CharacterMovementParams.h"
-#include "EAudioVoiceType.h"
 #include "EBreakerDamageResponse.h"
 #include "ECharacterAgentType.h"
 #include "EDamageReactionType.h"
 #include "EDamageStrengthType.h"
 #include "EnemyHitReactMontageSet.h"
 #include "EnemyHitReactStunMontageSet.h"
-#include "PawnAudioInterface.h"
 #include "PoolInterface.h"
 #include "StaggerLocalPrediction.h"
 #include "Templates/SubclassOf.h"
@@ -45,12 +38,9 @@ class ACMCtrlBase;
 class APawn;
 class IAttributeContainerInterface;
 class UAttributeContainerInterface;
-class UAkComponent;
 class UAnimMontage;
 class UAttackTargetComponent;
 class UBlackboardComponent;
-class UBreakerAkComponent;
-class UBreakerCharAudioDataBase;
 class UBreakerMotionWarpingComponent;
 class UBreakerSentinelComponent;
 class UCharacterAttributeComponent;
@@ -68,7 +58,7 @@ class USoundBase;
 class USoundConcurrency;
 
 UCLASS(Abstract, Blueprintable)
-class BREAKER_API ACMCharBase : public ACharacter, public IBreakerDamageable, public IGameplayTagAssetInterface, public IPawnAudioInterface, public ICharacterAudioInterface, public IAudioDamageInterface, public IAttackTargetOwner, public ICharacterAgentInterface, public IAttributeComponentInterface, public IPoolInterface {
+class BREAKER_API ACMCharBase : public ACharacter, public IBreakerDamageable, public IGameplayTagAssetInterface, public IAttackTargetOwner, public ICharacterAgentInterface, public IAttributeComponentInterface, public IPoolInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -88,12 +78,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCharacterAttributeComponent* AttributeComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UBreakerAkComponent* AKAudioComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UBreakerAkComponent* VoiceAkAudioComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UMaterialStackComponent* MaterialStack;
@@ -254,9 +238,6 @@ public:
     float SmoothRotationMaxSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UBreakerCharAudioDataBase* CharacterAudioData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCharacterMovementParams MovementParams;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -318,10 +299,7 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void SurroundingEnemiesKilled();
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void StopTelegraphSFX_ByCurrentActiveAttack(const FName SocketName, const AkActionOnEventType OnStopActionType, const int32 OnStopFadeOutMs, const EAkCurveInterpolation OnStopFadeOutCurve);
-    
+
     UFUNCTION(BlueprintCallable)
     void SetSpawnLocation(const FVector& Location);
     
@@ -339,9 +317,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void PlayVoiceSFX_ByAttackName(const float Delay, const FName AttackName);
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void PlayVoiceSFX(const float Delay, const FGameplayTag GameplayTag, const EAudioVoiceType VoiceType);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void PlayTelegraphSFX_ByCurrentActiveAttack(const float Delay, const FName SocketName);
@@ -422,9 +397,6 @@ public:
     void KillSurroundingEnemies(float Radius);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void K2_GetAKAudioComponent(UAkComponent*& Result) const;
-    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool IsStrafing() const;
     
@@ -638,9 +610,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-    
-    UFUNCTION(BlueprintCallable)
-    void K2_GetAudioEventCollection(FAudioEventsCollection& Collection) const override PURE_VIRTUAL(K2_GetAudioEventCollection,);
     
     UFUNCTION(BlueprintCallable)
     bool GetAttributeComponent(TScriptInterface<IAttributeContainerInterface>& Result) override PURE_VIRTUAL(GetAttributeComponent, return false;);

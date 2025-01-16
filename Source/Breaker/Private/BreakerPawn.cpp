@@ -4,7 +4,6 @@
 #include "CharacterAttributeComponent.h"
 #include "AimingOrbitCameraComponent.h"
 #include "AttackTargetTriageComponent.h"
-#include "BreakerAkComponent.h"
 #include "BreakerInteractorComponent.h"
 #include "BreakerMotionWarpingComponent.h"
 #include "BreakerPawnInputActions.h"
@@ -77,8 +76,6 @@ ABreakerPawn::ABreakerPawn(const FObjectInitializer& ObjectInitializer) : Super(
     this->TutorialManager = NULL;
     this->PingComponent = CreateDefaultSubobject<UPingComponent>(TEXT("PingComponent"));
     this->CombatComponent = NULL;
-    this->AKAudioComponent = CreateDefaultSubobject<UBreakerAkComponent>(TEXT("AK Audio Component"));
-    this->VoiceAkAudioComponent = CreateDefaultSubobject<UBreakerAkComponent>(TEXT("Voice Ak Audio Component"));
     this->MaterialStack = CreateDefaultSubobject<UMaterialStackComponent>(TEXT("MaterialStack"));
     this->BaseMoveMode = CreateDefaultSubobject<UMovementBase>(TEXT("BaseMoveModeComponent"));
     this->RagdollMotion = CreateDefaultSubobject<UMovementRagdoll>(TEXT("RagdollComponent"));
@@ -149,7 +146,6 @@ ABreakerPawn::ABreakerPawn(const FObjectInitializer& ObjectInitializer) : Super(
     this->CosmeticSkelMesh->SetupAttachment(RootComponent);
     this->GliderAction->SetupAttachment(RootComponent);
     this->HoverboardAction->SetupAttachment(RootComponent);
-    this->VoiceAkAudioComponent->SetupAttachment(RootComponent);
 }
 
 void ABreakerPawn::UpdateCharacter(const UPlayerCharacterInfo* NewInfo) {
@@ -346,13 +342,6 @@ void ABreakerPawn::LowerHealthOrKill(float in_damage) {
 
 
 void ABreakerPawn::KillPlayer(bool NewResetRezTokens) {
-}
-
-
-void ABreakerPawn::K2_GetAudioEventCollection(FAudioEventsCollection& Collection) const {
-}
-
-void ABreakerPawn::K2_GetAKAudioComponent(UAkComponent*& Result) const {
 }
 
 bool ABreakerPawn::IsWallGripping() const {

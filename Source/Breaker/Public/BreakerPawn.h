@@ -68,12 +68,9 @@ class ASyCom;
 class IAttributeContainerInterface;
 class UAttributeContainerInterface;
 class UAimingOrbitCameraComponent;
-class UAkAudioEvent;
-class UAkComponent;
 class UAnimInstance;
 class UAnimMontage;
 class UAttackTargetTriageComponent;
-class UBreakerAkComponent;
 class UBreakerCamModifier;
 class UBreakerEquipmentComponent;
 class UBreakerInteractorComponent;
@@ -137,13 +134,6 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTeleportSucceededEvent TeleportSucceededEvent;
-    
-protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UAkAudioEvent* OnDamagedSound;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UAkAudioEvent* OnDeathSound;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -287,12 +277,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCharacterCombatComponent* CombatComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UBreakerAkComponent* AKAudioComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UBreakerAkComponent* VoiceAkAudioComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UMaterialStackComponent* MaterialStack;
@@ -809,14 +793,6 @@ public:
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void K2_PawnInitialized();
-    
-public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void K2_GetAudioEventCollection(FAudioEventsCollection& Collection) const;
-    
-protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void K2_GetAKAudioComponent(UAkComponent*& Result) const;
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

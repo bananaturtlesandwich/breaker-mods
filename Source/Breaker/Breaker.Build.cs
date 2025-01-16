@@ -8,7 +8,6 @@ public class Breaker : ModuleRules {
         
         PublicDependencyModuleNames.AddRange(new string[] {
             "AIModule",
-            "AkAudio",
             "AnimGraphRuntime",
             "CommonInput",
             "CommonUI",
@@ -16,7 +15,6 @@ public class Breaker : ModuleRules {
             "CoreUObject",
             "DeveloperSettings",
             "Engine",
-            "FastNoiseGenerator",
             "Foliage",
             "GameplayCameras",
             "GameplayTags",
