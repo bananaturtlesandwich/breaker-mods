@@ -1,0 +1,47 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EDamageDetail.generated.h"
+
+UENUM(BlueprintType)
+enum class EDamageDetail : uint8 {
+    CriticalHit,
+    Healing,
+    Burn,
+    Crystal,
+    Acrid,
+    Bleed,
+    Rot,
+    Hack,
+    Shock,
+    Crit,
+    Special,
+    Finisher,
+    CanStagger,
+    Execution,
+    Mod,
+    Amp,
+    Superarmored,
+    ArmorPiercing,
+    Dash,
+    StatusEffect,
+    InAir,
+    ComboLinkable,
+    RedFinisher,
+    ForcefulKnockback,
+    SuppressKnockback,
+    Undodgeable,
+    DeflectsProjectiles,
+    AlternateHand,
+    Juicy,
+    Parried,
+    PerfectParried,
+    CannotParry,
+    FollowsThrough,
+    Debug_NoVFX,
+    Debug_NoPushback,
+    Debug_NoHitReact,
+    Debug_NoDamageStrengthModifiers,
+    IncreaseVFX,
+    IgnoreArmor,
+};
+
