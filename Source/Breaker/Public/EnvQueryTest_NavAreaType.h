@@ -11,7 +11,7 @@ UCLASS(Blueprintable)
 class BREAKER_API UEnvQueryTest_NavAreaType : public UEnvQueryTest_GameSideBase {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY()
     FEnvTraceData ProjectionData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

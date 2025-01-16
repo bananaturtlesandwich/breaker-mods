@@ -78,13 +78,13 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSentinelShieldTargetsUpdated(const TArray<AActor*>& ShieldedTargets);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayMontageNotifyEnd_Internal(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayMontageNotifyEnd(FName NotifyName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayMontageNotifyBegin_Internal(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

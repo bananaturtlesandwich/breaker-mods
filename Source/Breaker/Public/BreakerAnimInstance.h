@@ -273,10 +273,10 @@ public:
     bool GetAnimNotifyStateDataForInstance(UAnimSequenceBase* Sequence, const UAnimNotifyState* NotifyState, FAnimNotifyStateInstanceData& OutInstanceData) const;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ForwardOnMontageNotifyEnd(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ForwardOnMontageNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
 public:

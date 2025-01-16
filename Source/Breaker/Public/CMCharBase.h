@@ -586,10 +586,10 @@ public:
     void ChangeLightStatus(bool bIsInLight);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CatchMontageNotifyEnd(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CatchMontageNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
     
 public:
