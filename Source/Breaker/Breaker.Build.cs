@@ -19,6 +19,7 @@ public class Breaker : ModuleRules {
             "Foliage",
             "GameplayCameras",
             "GameplayTags",
+            "GameplayTasks",
             "HMMagic",
             "InputCore",
             "LevelSequence",
