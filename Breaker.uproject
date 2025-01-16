@@ -274,21 +274,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "KawaiiPhysics",
-			"Enabled": true,
-			"MarketplaceURL": "KawaiiPhysics : Simple fake Physics for UnrealEngine4"
-		},
-		{
-			"Name": "MORT",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/f6a838d3c72b4d28b5635da50d3335e5"
-		},
-		{
-			"Name": "Tether",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/6af7e44eb9594b56b6530ca7a9ebf799"
-		},
-		{
 			"Name": "OpenXREyeTracker",
 			"Enabled": false,
 			"SupportedTargetPlatforms": [
@@ -331,16 +316,6 @@
 		{
 			"Name": "CommonUI",
 			"Enabled": true
-		},
-		{
-			"Name": "FastNoiseGenerator",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/527737f42da544e9abf8607a40495fbd"
-		},
-		{
-			"Name": "SPCRJointDynamics",
-			"Enabled": true,
-			"MarketplaceURL": "SPCRJointDynamics : Cloth-like bone physics for UnrealEngine"
 		},
 		{
 			"Name": "ModelingToolsEditorMode",
